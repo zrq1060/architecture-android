@@ -10,34 +10,28 @@
   - **分屏**
   - **...**
 - 支持**进程杀死**后的还原
-- 项目架构：**模块化+组件化+MVI（UiState+ViewModel+Flow+Kotlin协程+Repository+DataSource+Retrofit）**
+- 项目架构：**模块化+组件化+MVI**（UiState+ViewModel+Flow+Kotlin协程+Repository+DataSource+Retrofit）
 - 支持**多App开发**
 - 支持一键**切换Feature模块单独运行**
 - 支持一键**去除可移除功能代码**
-- 支持项目**无反射**实现（项目**默认无反射**实现，**反射**实现也提供，可供在两者选择）
-- 支持**EdgeToEdge**（**targetSdk>=35(Android15)**，**强制**开启了，所以为了**targetSdk>=35时兼任低版本**，需要**全部支持EdgeToEdge**）
-- 支持**动态主题**（**Android12+支持此功能**）
-- 支持**刷新、自动预加载**（自动预加载，如果**用户滑动慢并且获取数据快**，用户是**感觉不到加载的**）
-
-
+- 支持项目**无反射**实现（项目默认无反射实现，反射实现也提供，可供在两者选择）
+- 支持**EdgeToEdge**（`targetSdk >= 35`(Android15)，**强制**开启了，所以为了开启时兼任低版本，需要全部支持）
+- 支持**动态主题**（`Android12+`支持此功能）
+- 支持**刷新、自动预加载**（自动预加载，如果用户滑动慢并且获取数据快，用户是感觉不到加载的）
 
 本项目为一个**Android架构**，它遵循 **Android 设计**和**开发最佳实践**，旨在为开发者**提供实用参考**。
 
-本项目**目标**是为了**同时**支持`Compose`和`View`，以支持**公司项目**目前已有的`View`代码和之后的`Compose`代码，目前本项目**仅**支持`View`，项目**Star**高后续会支持`Compose`。
+本项目**目标**是为了**同时**支持`Compose`和`View`，以支持**公司项目**目前已有的`View`代码和之后的`Compose`代码，目前本项目**仅**支持`View`，后续项目**关注度** **（Star点赞数）** **高后**会支持`Compose`。
 
 本项目是以**字节跳动**公司的**抖音**App为参照，模拟开发的**抖音**App。由于本项目，**无抖音真正的网络数据**，所以本项目使用的数据，是通过某些**开源API**网络接口，**模拟**转的**网络数据**。
 
-
-
 本项目是在**官方的架构**（[nowinandroid（18.2k Star）](https://github.com/android/nowinandroid)、[architecture-samples（44.9k Star）](https://github.com/android/architecture-samples)）上做的**升级和修改**，如果大家对**此架构模块的划分**不理解，建议大家先了解**官方的**[nowinandroid](https://github.com/android/nowinandroid)，然后再来看本项目。
 
-本项目文档分为**快速介绍**、**详细介绍**（**模块间架构**、**模块内架构**）、**使用**，**建议大家按照顺序阅读文档**。如果**想快速**的查看代码，我提供了**demo工程**，里面有**最简单**的**使用案例**，请先阅读**此代码**。
+本项目文档分为**快速介绍**、**详细介绍**（**模块间架构**、**模块内架构**）、**使用**，建议大家按照顺序阅读文档。如果你**想快速**的了解，可以只看**快速介绍**、**使用**，我提供了**demo工程**，里面有**最简单**的**使用案例**，可以先阅读此代码。
 
 欢迎大家一起来**维护**项目，使其功能更加的**强大**、**健硕**。有问题，有需求，请提[issue](https://github.com/zrq1060/architecture-android/issues/new)，或者私信我。
 
-**欢迎大家点赞、收藏，以方便您后续查看。**
-
-
+**项目链接：** [architecture-android](https://github.com/zrq1060/architecture-android)，**欢迎大家点赞、收藏，以方便您后续查看。**
 
 ## 下载
 
@@ -51,12 +45,10 @@
 
 ### App展示
 
-
 | ![screenshot1](docs/images/screenshot/screenshot1.png) | ![screenshot2](docs/images/screenshot/screenshot2.png) | ![screenshot3](docs/images/screenshot/screenshot3.png) |
 | ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ |
 
 ### 主题展示
-
 
 |    Themes    |                                Light                                |                                Dark                                |
 | :-----------: | :------------------------------------------------------------------: | :----------------------------------------------------------------: |
@@ -70,7 +62,7 @@
 
 **下载项目并运行**
 
-```
+```shell
 git clone git@github.com:zrq1060/architecture-android.git
 ```
 
@@ -79,13 +71,11 @@ git clone git@github.com:zrq1060/architecture-android.git
 > 本项目**任何**页面，都支持如下：
 >
 > - **配置变更后的还原**（**屏幕旋转**、**亮暗模式切换**、**语言切换**、**字体大小更改**、**分屏**等），配置变更会导致`Activity`、`Fragment`会**重新创建新的**。
->- **进程被杀死后的还原**（可打开，开发者选项-后台进程限制-不允许后台进程，以更好的测试进程被杀死。开启后，可在后台多打开一些无关的app，再切换打开此app即可演示此效果）。
-
-
+> - **进程被杀死后的还原**（可打开，开发者选项-后台进程限制-不允许后台进程，以更好的测试进程被杀死。开启后，可在后台多打开一些无关的app，再切换打开此app即可演示此效果）。
 
 本项目，目前**仅支持**如下功能：
 
-- **登录页**：登录账号（手机号、邮箱）为**【任意】**，登录密码（验证码、密码）为**【123456】**。**可断网**，或输入**错误密码**，查看页面效果。
+- **登录页**：登录账号（手机号、邮箱）为 **【任意】**，登录密码（验证码、密码）为 **【123456】**。**可断网**，或输入**错误密码**，查看页面效果。
 
 - **Home首页**：顶部栏目的排序（**长按首页-顶部栏目**）
 
@@ -93,11 +83,7 @@ git clone git@github.com:zrq1060/architecture-android.git
 
 - **Shop商城页**：支持**刷新**、**自动加载**，**点击商城条目**模拟的商城列表数据的**增、删、改**操作。**可断网**，查看页面效果。
 
-  
-
 **在此跟着上面，操作App支持的功能（记得开启屏幕自动旋转、切换亮暗模式、点击商城Item），以演示上面功能效果。**
-
-
 
 ## 单独运行Feature模块演示
 
@@ -166,16 +152,12 @@ isFeatureSingle = true
 **目录说明：**
 
 * **最外层**`core`**目录**：为**所有App**都可以使用的代码及资源，**内部模块**被**所有App**内的`core`**模块**依赖。
-* **最外层**`douyin`**目录**：为**抖音App自己独有（特有）**的相关代码及资源。
+* **最外层**`douyin`**目录**：为 **抖音App自己独有（特有）** 的相关代码及资源。
   * `core`**模块**：依赖**最外层**`core`**目录**内的模块，**反之不行**。
   * `app`**模块**、`feature`**模块**：直接依赖**抖音内部**`core`模块即可，此为**最外层**`core`**目录**的**功能定制**，如：直接依赖**抖音App**的`:douyin:core:architecture`模块即可，此模块为**抖音App**对`:core:architecture`模块（**所有App通用的-架构模块**）的**定制**。
 * **最外层**`xigua`**目录**：为**西瓜视频App**的相关代码，规则同上（抖音）。
 
-
-
 > 说明：还可以在**最外层**继续开发其它App，如**今日头条**、**飞书**、**剪映**等，规则同上（抖音、西瓜视频）。
-
-
 
 #### 可移除版
 
@@ -207,13 +189,13 @@ isRouterReflect = true
 >
 > `isShopInclude`：为是否**包括商城**。
 >
-> `isRouterReflect`：为是否`Router`**反射实现**。 
+> `isRouterReflect`：为是否`Router`**反射实现**。
 >
 > - 本项目`Router`的实现分为了两种，**Dagger实现**（**正式**用）、**反射实现**（**测试**用），详细看`router`模块。
 
 ### 模块包名
 
-包名格式一般为：**域名反转+项目名+功能名**，以此**字节跳动**（域名：www.bytedance.com ）公司**抖音**项目为例，规则如下：
+包名格式一般为：**域名反转+项目名+功能名**，以此**字节跳动**（域名：[www.bytedance.com](http://www.bytedance.com) ）公司**抖音**项目为例，规则如下：
 
 * `core`：**com.bytedance.core.xxx**（**和特定App无关**），如：com.bytedance.core.architecture
 * `douyin`：com.bytedance.**douyin.xxx**（**和特定App有关**）
@@ -224,8 +206,6 @@ isRouterReflect = true
     * `core`：com.bytedance.**douyin.shop.core**.xxx，如：com.bytedance.douyin.shop.core.data
     * `feature`：com.bytedance.**douyin.shop.feature**.xxx，如：com.bytedance.douyin.shop.feature.shop
 * `xigua`：规则同上（抖音）
-
-
 
 ### 模块功能
 
@@ -246,8 +226,6 @@ isRouterReflect = true
   * `login`：登录相关，包含登录检测、当前登录状态、退出登录等。
   * `router`：路由系统相关，包含`Router`的**Dagger实现**、**反射实现**等。
 * `feature`：功能业务，包含UI、`ViewModel`等。
-
-
 
 ### Feature模块间通信介绍
 
@@ -294,8 +272,6 @@ class FakeHomeRouter : HomeRouter {
 ```kotlin
 val homeFragment = Router.Home.createHomeFragment()
 ```
-
-
 
 ### 单独运行Feature模块介绍
 
@@ -344,8 +320,6 @@ class ShopFragment{
 
 执行完后，会在**手机桌面**出现**所有Feature模块**的`App`（如快速介绍-单独运行Feature模块演示图所示），**点击**某个即可测试某单个**Feature**模块。
 
-
-
 ## 模块内架构
 
 ### 官方架构
@@ -358,8 +332,6 @@ class ShopFragment{
 
 ![architecture_overview](docs/images/architecture/architecture_overview.png)
 
-
-
 官方架构分为了：**UI层**、**Domain层**（可选）、**Data数据层**。
 
 ### 项目架构
@@ -367,8 +339,6 @@ class ShopFragment{
 本项目，目前**没有使用**`Domain`层，也**没有使用**`Room`库，目前的项目**架构图** 如下：
 
 ![architecture_project](docs/images/architecture/architecture_project.png)
-
-
 
 # 使用
 
@@ -438,8 +408,6 @@ class MainActivity : AppViewsActivity<ViewBinding, UiState, ViewModel>() {
 > 3. **初始化系列方法**，使用`ViewBinding`扩展方法，是为了能让其**在方法内直接获取到**`xxx`**控件**，而不用通过`binding.xxx`获取，以**更方便**的**操作控件**。
 > 4. `XXXBinding`、`XXXUiState`、`XXXViewModel`，全部通过**as别名**来命名，**简化了名字长度**，**统一了代码样式一致性**，这样**新类**只需要**修改模板类上面as别名**即可。
 
-
-
 ## ViewModel
 
 以`demo`模块的`MainViewModel`为例：
@@ -488,8 +456,6 @@ data class MainUiState(
 > 3. `uiStateFlow`为`UiState`的`Flow`流，它变化会影响到`Activity`、`Fragment`的`onUiStateCollect()`，一般为`Flow`（**单个**`Flow`、使用`combine()`观察**多个**`Flow`）的`map()`转为`UiState`的`Flow`。
 > 4. `XXXUiState`，通过**as别名**来命名，**简化了名字长度**，**统一了代码样式一致性**，这样**新类**只需要**修改模板类上面as别名**即可。
 
-
-
 ## 生命周期Toast、Snackbar
 
 **直接显示**`Toast`、`Snackbar`，是没有**生命周期控制**的（**只负责显示**），即使`Activiy`、`Fragment`**不可见**（被销毁、回到后台），**也还在显示**。我增加了**生命周期消息显示**，仅在`Activiy`、`Fragment`**可见时显示**。
@@ -510,8 +476,6 @@ MessageManager.showGlobalMessage("Global Message")
 viewModel.showMessage("Short Message")
 viewModel.showMessage("Long Message", isShort = false)
 ```
-
-
 
 ## StateView
 
@@ -550,8 +514,6 @@ viewModel.showMessage("Long Message", isShort = false)
 3. **Repository层**：
    1. `Repository`实现类，需要**实现**`RefreshRepository`（**仅刷新**）或`RefreshLoadMoreRepository`（**刷新加载**）接口。
    2. `Repository`实现类，需要**继承**`PageKeyedMemoryRefreshLoadMoreRepository`（**通过page加载**）或`ItemKeyedMemoryRefreshLoadMoreRepository`（**通过Item加载**）类。
-
-
 
 ## 网络
 
@@ -678,7 +640,5 @@ fun <T> BaseNetworkModel<T>.toRuleSuccess(): BaseNetworkModel<T> {
 - [nowinandroid](https://github.com/android/nowinandroid)
 - [architecture-samples](https://github.com/android/architecture-samples)
 
- 
 
-**欢迎大家点赞、收藏，以方便您后续查看。**
-
+**项目链接：** [architecture-android](https://github.com/zrq1060/architecture-android)，**欢迎大家点赞、收藏，以方便您后续查看。**

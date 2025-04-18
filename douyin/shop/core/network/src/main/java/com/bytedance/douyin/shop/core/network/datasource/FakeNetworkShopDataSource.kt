@@ -6,7 +6,6 @@ import com.bytedance.douyin.shop.core.network.datasource.interfaces.NetworkShopD
 import com.bytedance.douyin.shop.core.network.model.NetworkFakeGetHotVideoItemData
 import com.bytedance.douyin.shop.core.network.model.NetworkShop
 import com.bytedance.douyin.shop.core.network.model.NetworkShopButton
-import kotlinx.coroutines.delay
 import retrofit2.Retrofit
 import java.util.Random
 import javax.inject.Inject
@@ -40,7 +39,6 @@ class FakeNetworkShopDataSource @Inject constructor(
 
     override suspend fun addItem(): NetworkShop {
         // 模拟Api请求
-        delay(2000)
         val first = shopApi.getHotVideo(1, 1).itemList.map { it.data }.first()
         return first.asNetworkShop(Random().nextInt(10000))
     }
@@ -72,7 +70,6 @@ class FakeNetworkShopDataSource @Inject constructor(
     }
 
     private suspend fun mockApiRequest() {
-        delay(2000)
         shopApi.getTime().toRuleSuccessData()
     }
 

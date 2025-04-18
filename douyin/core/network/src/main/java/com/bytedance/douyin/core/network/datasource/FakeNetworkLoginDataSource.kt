@@ -5,7 +5,6 @@ import com.bytedance.douyin.core.network.api.FakeNetworkLoginApi
 import com.bytedance.douyin.core.network.datasource.interfaces.NetworkLoginDataSource
 import com.bytedance.douyin.core.network.model.NetworkUser
 import com.bytedance.douyin.core.network.model.asNetworkUser
-import kotlinx.coroutines.delay
 import retrofit2.Retrofit
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -69,7 +68,6 @@ class FakeNetworkLoginDataSource @Inject constructor(
         loginApi.login("309324904@qq.com", password).toRuleSuccessData().asNetworkUser()
 
     private suspend fun mockApiRequest() {
-        delay(2000)
         loginApi.sentences().toRuleSuccessData()
     }
 }

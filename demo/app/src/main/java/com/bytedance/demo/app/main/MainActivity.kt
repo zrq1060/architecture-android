@@ -2,7 +2,6 @@ package com.bytedance.demo.app.main
 
 import android.view.LayoutInflater
 import androidx.activity.viewModels
-import com.bytedance.core.architecture.message.MessageManager
 import com.bytedance.douyin.core.architecture.app.views.AppViewsActivity
 import dagger.hilt.android.AndroidEntryPoint
 // 设置as别名，一般都是设置这几个。
@@ -39,7 +38,6 @@ class MainActivity : AppViewsActivity<ViewBinding, UiState, ViewModel>() {
             // 展示Toast，此Toast和页面的生命周期绑定，此页面关闭，Toast关闭。
             viewModel.showMessage("Long Toast", isShort = false)
         }
-        MessageManager.showGlobalMessage("")
     }
 
     // 初始化Observer（可以在里面直接拿到页面布局控件），用于观察（收集）ViewModel内的暴露的属性值。

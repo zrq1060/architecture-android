@@ -4,10 +4,12 @@ import com.bytedance.douyin.core.data.repository.DefaultHomeRepository
 import com.bytedance.douyin.core.data.repository.DefaultHomeTabsSortRepository
 import com.bytedance.douyin.core.data.repository.DefaultLoginRepository
 import com.bytedance.douyin.core.data.repository.DefaultMainRepository
+import com.bytedance.douyin.core.data.repository.DefaultVideoRepository
 import com.bytedance.douyin.core.data.repository.interfaces.HomeRepository
 import com.bytedance.douyin.core.data.repository.interfaces.HomeTabsSortRepository
 import com.bytedance.douyin.core.data.repository.interfaces.LoginRepository
 import com.bytedance.douyin.core.data.repository.interfaces.MainRepository
+import com.bytedance.douyin.core.data.repository.interfaces.VideoRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -34,4 +36,7 @@ interface DataModule {
 
     @Binds
     fun bindsLoginRepository(repository: DefaultLoginRepository): LoginRepository
+
+    @Binds
+    fun bindsVideoRepository(repository: DefaultVideoRepository): VideoRepository
 }

@@ -18,5 +18,5 @@ import dagger.hilt.components.SingletonComponent
 internal interface NetworkShopDataSourceModule {
 
     @Binds
-    fun binds(impl: FakeNetworkShopDataSource): NetworkShopDataSource
+    fun bindsNetworkShopDataSource(impl: FakeNetworkShopDataSource): NetworkShopDataSource
 }

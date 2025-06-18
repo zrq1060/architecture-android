@@ -18,5 +18,5 @@ import dagger.hilt.components.SingletonComponent
 interface DataModule {
 
     @Binds
-    fun bindsMainRepository(repository: DefaultShopRepository): ShopRepository
+    fun bindsShopRepository(repository: DefaultShopRepository): ShopRepository
 }

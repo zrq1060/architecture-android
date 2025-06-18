@@ -15,6 +15,6 @@ class VideoFragmentStateAdapter(fragment: Fragment) :
     AppFragmentStateAdapter<VideoItem>(fragment, false) {
 
     override fun createFragment(position: Int, item: VideoItem): Fragment {
-        return VideoItemFragment.newInstance(item.id)
+        return VideoItemFragment.newInstance(item)
     }
 }

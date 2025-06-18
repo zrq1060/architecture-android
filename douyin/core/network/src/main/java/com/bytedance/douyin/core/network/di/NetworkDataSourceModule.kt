@@ -1,7 +1,9 @@
 package com.bytedance.douyin.core.network.di
 
 import com.bytedance.douyin.core.network.datasource.FakeNetworkLoginDataSource
+import com.bytedance.douyin.core.network.datasource.FakeNetworkVideoDataSource
 import com.bytedance.douyin.core.network.datasource.interfaces.NetworkLoginDataSource
+import com.bytedance.douyin.core.network.datasource.interfaces.NetworkVideoDataSource
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -18,5 +20,8 @@ import dagger.hilt.components.SingletonComponent
 internal interface NetworkDataSourceModule {
 
     @Binds
-    fun binds(impl: FakeNetworkLoginDataSource): NetworkLoginDataSource
+    fun bindsNetworkLoginDataSource(impl: FakeNetworkLoginDataSource): NetworkLoginDataSource
+
+    @Binds
+    fun bindsNetworkVideoDataSource(impl: FakeNetworkVideoDataSource): NetworkVideoDataSource
 }

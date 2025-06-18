@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.bytedance.douyin.core.architecture.app.views.AppViewsEmptyViewModelFragment
+import com.bytedance.douyin.core.model.VideoItem
 import com.bytedance.douyin.feature.video.databinding.DouyinFeatureVideoFragmentVideoItemBinding as ViewBinding
 
 /**
@@ -19,7 +20,8 @@ class VideoItemFragment : AppViewsEmptyViewModelFragment<ViewBinding>() {
     ) = ViewBinding.inflate(inflater, container, false)
 
     override fun ViewBinding.initViews() {
-        title.text = arguments?.getLong(KEY_ID).toString()
+        val videoItem = arguments?.getSerializable(KEY_ITEM) as VideoItem
+        title.text = videoItem.authorName
     }
 
     override fun ViewBinding.initListeners() {
@@ -31,10 +33,11 @@ class VideoItemFragment : AppViewsEmptyViewModelFragment<ViewBinding>() {
     }
 
     companion object {
-        private const val KEY_ID = "id"
-        internal fun newInstance(id: Long) = VideoItemFragment().apply {
+        private const val KEY_ITEM = "item"
+
+        internal fun newInstance(item: VideoItem) = VideoItemFragment().apply {
             arguments = Bundle().apply {
-                putLong(KEY_ID, id)
+                putSerializable(KEY_ITEM, item)
             }
         }
     }

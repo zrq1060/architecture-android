@@ -6,14 +6,56 @@
     android:layout_height="match_parent"
     tools:context=".ui.videoitem.VideoItemFragment">
 
+    <androidx.media3.ui.PlayerView
+        android:id="@+id/playerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:surface_type="texture_view"
+        app:use_controller="false" />
+
+    <ImageButton
+        android:id="@+id/play_pause"
+        style="@style/ExoStyledControls.Button.Center.PlayPause"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/playerView"
+        app:layout_constraintEnd_toEndOf="@+id/playerView"
+        app:layout_constraintStart_toStartOf="@+id/playerView"
+        app:layout_constraintTop_toTopOf="@+id/playerView"
+        tools:ignore="ContentDescription" />
+
     <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
+        android:id="@+id/author_name"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:textSize="100sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginBottom="@dimen/douyin_feature_video_author_name_margin_bottom"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="?attr/colorOnSurface"
+        android:textSize="@dimen/douyin_feature_video_author_name_text_size"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/description"
+        app:layout_constraintEnd_toEndOf="@id/description"
+        app:layout_constraintStart_toStartOf="@id/description" />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/douyin_feature_video_description_margin_horizontal"
+        android:layout_marginBottom="@dimen/douyin_feature_video_description_margin_bottom"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textColor="?attr/colorOnSurface"
+        android:textSize="@dimen/douyin_feature_video_description_text_size"
+        app:layout_constraintBottom_toTopOf="@+id/seekBar"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/douyin_feature_video_seek_bar_height"
+        android:background="@android:color/transparent"
+        android:thumb="@drawable/douyin_feature_video_thumb"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

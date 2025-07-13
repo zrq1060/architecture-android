@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <!--支持HTTP，后续可移除-->
+    <application android:usesCleartextTraffic="true" />
 </manifest>

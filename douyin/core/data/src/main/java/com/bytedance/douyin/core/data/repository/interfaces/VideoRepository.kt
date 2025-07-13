@@ -1,5 +1,6 @@
 package com.bytedance.douyin.core.data.repository.interfaces
 
+import com.bytedance.douyin.core.data.repository.refreshloadmore.interfaces.RefreshLoadMoreRepository
 import com.bytedance.douyin.core.model.Video
 
 /**
@@ -8,7 +9,7 @@ import com.bytedance.douyin.core.model.Video
  * @author zhangrq
  * createTime 2025/6/18 下午15:49
  */
-interface VideoRepository {
+interface VideoRepository : RefreshLoadMoreRepository<Video> {
 
     suspend fun getVideo(page: Int, size: Int): List<Video>
 

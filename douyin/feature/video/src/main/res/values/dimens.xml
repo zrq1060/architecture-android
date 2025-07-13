@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="douyin_feature_video_author_name_text_size">22sp</dimen>
+    <dimen name="douyin_feature_video_description_text_size">18sp</dimen>
+    <dimen name="douyin_feature_video_author_name_margin_bottom">8dp</dimen>
+    <dimen name="douyin_feature_video_description_margin_horizontal">15dp</dimen>
+    <dimen name="douyin_feature_video_description_margin_bottom">5dp</dimen>
+    <dimen name="douyin_feature_video_seek_bar_height">10dp</dimen>
+</resources>

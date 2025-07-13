@@ -27,14 +27,10 @@ class FakeNetworkVideoDataSource @Inject constructor(
         return list.map { it.asNetworkShop() }
     }
 
-    private fun NetworkFakeGetHotVideoItemData.asNetworkShop(
-    ) = NetworkVideo(
+    private fun NetworkFakeGetHotVideoItemData.asNetworkShop() = NetworkVideo(
         id = id,
-        playUrl = playUrl.replaceHttp(),
+        playUrl = playUrl,
         description = description,
         authorName = author.name,
     )
-
-    private fun String.replaceHttp(): String = replace("http:", "https:")
-
 }

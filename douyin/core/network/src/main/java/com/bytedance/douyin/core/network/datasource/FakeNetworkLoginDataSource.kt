@@ -3,6 +3,7 @@ package com.bytedance.douyin.core.network.datasource
 import com.bytedance.core.network.util.toRuleSuccessData
 import com.bytedance.douyin.core.network.api.FakeNetworkLoginApi
 import com.bytedance.douyin.core.network.datasource.interfaces.NetworkLoginDataSource
+import com.bytedance.douyin.core.network.model.FakeNetworkLoginRequest
 import com.bytedance.douyin.core.network.model.NetworkUser
 import com.bytedance.douyin.core.network.model.asNetworkUser
 import retrofit2.Retrofit
@@ -65,7 +66,8 @@ class FakeNetworkLoginDataSource @Inject constructor(
     }
 
     private suspend fun mockLogin(phoneNumber: String, password: String): NetworkUser =
-        loginApi.login("309324904@qq.com", password).toRuleSuccessData().asNetworkUser()
+        loginApi.login(FakeNetworkLoginRequest(username = "test", password = password))
+            .toRuleSuccessData().asNetworkUser()
 
     private suspend fun mockApiRequest() {
         loginApi.sentences().toRuleSuccessData()

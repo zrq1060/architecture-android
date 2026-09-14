@@ -1,10 +1,10 @@
 package com.bytedance.douyin.core.network.api
 
+import com.bytedance.douyin.core.network.model.FakeNetworkLoginRequest
+import com.bytedance.douyin.core.network.model.FakeNetworkLoginResponse
 import com.bytedance.douyin.core.network.model.FakeNetworkSentences
-import com.bytedance.douyin.core.network.model.FakeNetworkUser
 import com.bytedance.douyin.core.network.model.base.ApiOpenBaseNetworkModel
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
+import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
 
@@ -18,16 +18,14 @@ interface FakeNetworkLoginApi {
     /**
      * 登录
      */
-    @POST("api/login")
-    @FormUrlEncoded
+    @POST("api/auth/login")
     suspend fun login(
-        @Field("account") account: String,
-        @Field("password") password: String,
-    ): ApiOpenBaseNetworkModel<FakeNetworkUser>
+        @Body request: FakeNetworkLoginRequest
+    ): ApiOpenBaseNetworkModel<FakeNetworkLoginResponse>
 
     /**
      * 一言名句
      */
-    @GET("api/sentences")
+    @GET("api/tools/famous-sentence")
     suspend fun sentences(): ApiOpenBaseNetworkModel<FakeNetworkSentences>
 }

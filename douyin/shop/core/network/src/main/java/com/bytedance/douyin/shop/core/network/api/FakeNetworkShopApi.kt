@@ -28,6 +28,6 @@ interface FakeNetworkShopApi {
     /**
      * 获取时间
      */
-    @GET("api/getTime")
+    @GET("api/tools/timestamp")
     suspend fun getTime(): ApiOpenBaseNetworkModel<NetworkFakeGetTime>
 }

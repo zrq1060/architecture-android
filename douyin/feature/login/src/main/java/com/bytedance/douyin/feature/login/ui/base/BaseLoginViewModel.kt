@@ -6,7 +6,7 @@ import com.bytedance.core.architecture.stateview.getErrorMessageRule
 import com.bytedance.core.architecture.stateview.isLoading
 import com.bytedance.core.architecture.stateview.isNormalException
 import com.bytedance.douyin.core.architecture.app.AppViewModel
-import com.bytedance.douyin.core.architecture.util.requestAsyncSingleOnlyHint
+import com.bytedance.douyin.core.architecture.util.requestAsyncErrorHint
 import com.bytedance.douyin.core.designsystem.util.toErrorMessage
 import com.bytedance.douyin.feature.login.R
 
@@ -51,7 +51,7 @@ abstract class BaseLoginViewModel<UiState>(
 
     fun requestAsync(asyncFun: suspend () -> Unit) {
         // 效果说明：不隐藏内容，仅展示加载中，加载失败改为展示消息提示（普通异常）。
-        requestAsyncSingleOnlyHint(
+        requestAsyncErrorHint(
             errorCallback = {
                 // 网络规则提示消息用于UI展示，普通异常消息用于消息提示（如：Toast），其它状态不显示。
                 if (error.isNormalException()) {

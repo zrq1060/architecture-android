@@ -3,8 +3,8 @@ package com.bytedance.douyin.shop.feature.shop.ui
 import com.bytedance.core.common.util.asUnsafe
 import com.bytedance.core.model.BaseDiffItem
 import com.bytedance.douyin.core.architecture.app.AppViewModel
-import com.bytedance.douyin.core.architecture.util.requestAsyncSingleOnlyHint
-import com.bytedance.douyin.core.architecture.util.requestAsyncSingleShowAllState
+import com.bytedance.douyin.core.architecture.util.requestAsyncErrorHint
+import com.bytedance.douyin.core.architecture.util.requestAsyncShowAllState
 import com.bytedance.douyin.core.data.repository.refreshloadmore.interfaces.RefreshRepositoryOwner
 import com.bytedance.douyin.shop.core.data.repository.interfaces.ShopRepository
 import com.bytedance.douyin.shop.core.model.Shop
@@ -36,15 +36,15 @@ class ShopViewModel @Inject constructor(
             // 顶部按钮数据及其点击
             val buttons = item.buttons?.map { shopButton ->
                 ShopButtonUiState(shopButton = shopButton, addItem = {
-                    requestAsyncSingleShowAllState {
+                    requestAsyncShowAllState {
                         shopRepository.addButtonItem(shopButton.id)
                     }
                 }, deleteItem = {
-                    requestAsyncSingleShowAllState {
+                    requestAsyncShowAllState {
                         shopRepository.deleteButtonItem(shopButton.id)
                     }
                 }, updateItem = {
-                    requestAsyncSingleShowAllState {
+                    requestAsyncShowAllState {
                         shopRepository.updateButtonItemTitle(
                             shopButton.id,
                             getUpdateTitle(shopButton.title ?: "")
@@ -54,15 +54,15 @@ class ShopViewModel @Inject constructor(
             }
             // 其它Item数据及其点击
             ShopItemUiState(type = item.type, buttons = buttons, shop = item, addItem = {
-                requestAsyncSingleOnlyHint {
+                requestAsyncErrorHint {
                     shopRepository.addItem(item.id ?: 0)
                 }
             }, deleteItem = {
-                requestAsyncSingleShowAllState {
+                requestAsyncShowAllState {
                     shopRepository.deleteItem(item.id ?: 0)
                 }
             }, updateItem = {
-                requestAsyncSingleOnlyHint {
+                requestAsyncErrorHint {
                     shopRepository.updateItemTitle(item.id ?: 0, getUpdateTitle(item.title ?: ""))
                 }
             })

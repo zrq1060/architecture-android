@@ -52,7 +52,7 @@ private fun DefaultStateViewManager.collect(
         hideAll()
     }
 
-    // 设置是否展示内容布局（如：列表RecyclerView）
-    val isShowContentLayout = uiState.isShowContentLayout ?: return // 为空，不设置。
-    getStateViewReplaceView().isInvisible = !isShowContentLayout
+    // 设置是否展示StateViewReplaceView（如：列表RecyclerView）
+    val showStateViewReplaceView = uiState.isShowStateViewReplaceView ?: return // 为空，不设置。
+    getStateViewReplaceView().isInvisible = !showStateViewReplaceView
 }

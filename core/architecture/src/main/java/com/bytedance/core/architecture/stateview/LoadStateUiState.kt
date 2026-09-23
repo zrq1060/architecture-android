@@ -10,33 +10,33 @@ import com.bytedance.core.common.exception.RuleException
  * createTime 2024/12/8 下午5:22
  */
 sealed class LoadStateUiState(
-    // 是否展示内容布局（如：Error状态下，展示Error布局，不展示内容布局），为null代表不操作。
-    val isShowContentLayout: Boolean?,
+    // 是否展示StateViewReplaceView（如：Error状态下，展示StateView-Error布局，不展示StateViewReplaceView），为null代表不操作。
+    val isShowStateViewReplaceView: Boolean?,
     // 是否展示StateView（如：Error状态下，不展示StateView-Error布局，展示提示）
     val isShowStateView: Boolean,
 ) {
     class Loading(
-        isShowContentLayout: Boolean?,
+        isShowStateViewReplaceView: Boolean?,
         isShowStateView: Boolean,
         val isLoadingDialog: Boolean,
-    ) : LoadStateUiState(isShowContentLayout, isShowStateView)
+    ) : LoadStateUiState(isShowStateViewReplaceView, isShowStateView)
 
     class Error(
-        isShowContentLayout: Boolean?,
+        isShowStateViewReplaceView: Boolean?,
         isShowStateView: Boolean,
         val error: Throwable,
         val retry: View.OnClickListener?,
-    ) : LoadStateUiState(isShowContentLayout, isShowStateView)
+    ) : LoadStateUiState(isShowStateViewReplaceView, isShowStateView)
 
     class Empty(
-        isShowContentLayout: Boolean?,
+        isShowStateViewReplaceView: Boolean?,
         isShowStateView: Boolean,
-    ) : LoadStateUiState(isShowContentLayout, isShowStateView)
+    ) : LoadStateUiState(isShowStateViewReplaceView, isShowStateView)
 
     class Success(
-        isShowContentLayout: Boolean?,
+        isShowStateViewReplaceView: Boolean?,
         isShowStateView: Boolean,
-    ) : LoadStateUiState(isShowContentLayout, isShowStateView)
+    ) : LoadStateUiState(isShowStateViewReplaceView, isShowStateView)
 }
 
 // 判断
